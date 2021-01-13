@@ -2,6 +2,7 @@
 #include <stdlib.h>
 #include <stdbool.h>
 #include "list.h"
+#include "room.h"
 
 /*
 List handbook:
