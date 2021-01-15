@@ -4,7 +4,6 @@
 #include "board.h"
 #include "list.h"
 
-
 /*
     Board handbook:
     Board is always a pointer at the root room.
@@ -29,8 +28,8 @@ Board generate_board(short int maxdepth, time_t seed){
 
     while(depth <= maxdepth){
         choice = (short int)(rand() % (1-3) + 1);
-        short int room_type = depth == maxdepth ? 3 : 1;
-        //if choice is one - generate only one extra room.
+        short int room_type = depth == maxdepth || depth == maxdepth - 1 ? 3 : 2;
+        //if choice is one - generate only one extra room
         if(choice == 1){
             printf("Creating one room of type %d.\n",room_type);
             Room* left_room = create_room(room_type,currently_serviced,NULL,NULL);
@@ -53,5 +52,6 @@ Board generate_board(short int maxdepth, time_t seed){
         currently_serviced = pop(&to_service);
         depth ++;
     }
+    return root;
 
 }
