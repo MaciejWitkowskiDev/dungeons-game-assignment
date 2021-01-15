@@ -1,5 +1,3 @@
-#include "room.h"
-
 typedef struct node {
     Room* data;
     struct node* next;
@@ -13,4 +11,4 @@ void push(List *list, Room *room);
 
 Room* pop();
 
-bool list_empty(List *list)
+bool list_empty(List *list);

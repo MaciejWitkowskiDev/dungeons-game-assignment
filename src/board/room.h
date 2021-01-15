@@ -1,10 +1,6 @@
-#include <stdbool.h>
-
-enum type{root, intermed, terminary};
-
 //The room-node:
 typedef struct room{
-    enum type room_type;
+    enum type{root, intermed, terminary} room_type;
     struct room* prev;
     struct room* left;
     struct room* right;
