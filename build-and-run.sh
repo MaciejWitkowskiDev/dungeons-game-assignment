@@ -1,6 +1,6 @@
 #!/bin/bash
 
-gcc ./src/board/list.c ./src/board/room.c ./src/main.c -o gamefile
+./build.sh
 
 chmod +x gamefile
 
