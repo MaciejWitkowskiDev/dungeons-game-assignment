@@ -9,6 +9,6 @@ List create_list();
 
 void push(List *list, Room *room);
 
-Room* pop();
+Room* pop(List *list);
 
 bool list_empty(List *list);
