@@ -1,0 +1,4 @@
+/*
+    This is a module that traverses the board and does things
+    on the rooms. It implements BFS and DFS.
+*/
