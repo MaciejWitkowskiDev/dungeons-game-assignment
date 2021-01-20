@@ -6,6 +6,7 @@
 
 /*
     Board handbook:
+    A board is basically a graph, so BFS and DFS are used for traversal.
     Board is always a pointer at the root room.
 */
 
@@ -52,6 +53,40 @@ Board generate_board(short int maxdepth, time_t seed){
         currently_serviced = pop(&to_service);
         depth ++;
     }
+
+    //Now generate the left route:
+    depth = 0;
+    choice = 0;
+    currently_serviced = left_of_root;
+    to_service = NULL;
+
+    while(depth <= maxdepth){
+        choice = (short int)(rand() % (1-3) + 1);
+        short int room_type = depth == maxdepth || depth == maxdepth - 1 ? 3 : 2;
+        //if choice is one - generate only one extra room
+        if(choice == 1){
+            printf("Creating one room of type %d.\n",room_type);
+            Room* left_room = create_room(room_type,currently_serviced,NULL,NULL);
+            push(&to_service, left_room);
+            currently_serviced->left = left_room;
+        }
+        //if choice is two - generate two extra rooms.
+        else if(choice == 2){
+            printf("Creating two rooms of type %d.\n",room_type);
+            Room* left_room = create_room(room_type,currently_serviced,NULL,NULL);
+            Room* right_room = create_room(room_type,currently_serviced,NULL,NULL);
+            push(&to_service, left_room);
+            push(&to_service, right_room);
+            currently_serviced->left = left_room;
+            currently_serviced->right = right_room;
+        }
+        else{
+            printf("Wrong random number, board.c line 83");
+        }
+        currently_serviced = pop(&to_service);
+        depth ++;
+    }
+
     return root;
 
 }

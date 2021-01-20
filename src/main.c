@@ -5,9 +5,9 @@
 
 int main(){
     time_t seed = time(NULL);
-    Board xd = generate_board(5, seed);
+    Board game_board = generate_board(5, seed);
     int choice = -1;
-    Room* current_room = xd;
+    Room* current_room = game_board;
 
     while(choice != 0){
         printf("\n\nYou are currently in a room of type %d\n", current_room->room_type);
