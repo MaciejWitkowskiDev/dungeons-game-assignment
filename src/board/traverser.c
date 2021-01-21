@@ -1,7 +1,6 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include "traverser.h"
-#include "list.h"
 
 
 //Place the treasure in a random terminary room DFS-style :)
