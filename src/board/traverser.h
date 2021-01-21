@@ -4,6 +4,6 @@
 */
 #include "board.h"
 
-void place_treasure(Board *board);
+void place_treasure(Board *board, time_t seed);
 void place_random_events(Board *board);
 void export_board(Board *board);
