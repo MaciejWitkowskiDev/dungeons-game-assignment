@@ -75,5 +75,8 @@ List list_all_rooms(Board *board){
 
     } while (next_room != NULL);
 
+    push(&all_rooms,root);
+    push(&all_rooms,root->left);
+    push(&all_rooms,root->right);
     return all_rooms;
 }
