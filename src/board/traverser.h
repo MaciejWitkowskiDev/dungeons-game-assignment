@@ -4,6 +4,14 @@
 */
 #include "board.h"
 
+//Place the treasure in a random terminary room DFS-style :)
 void place_treasure(Board *board, time_t seed);
-void place_random_events(Board *board);
-void export_board(Board *board);
+
+//Return a list with all room nodes in it
+List list_all_rooms(Board *board);
+
+//Populate the board with random events.
+void populate_board(Board *board,time_t seed);
+
+
+
