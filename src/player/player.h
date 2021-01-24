@@ -18,4 +18,4 @@ void do_damage(Player *player, Player *rival, int dmg);
 void item_pickup(Player *player,int item);
 
 //Handle victory
-void victory(Player *player, Player *rival);
+void victory(Player *player);

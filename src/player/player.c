@@ -6,7 +6,7 @@ void do_damage(Player *player, Player *rival, int dmg){
     int hp = player->hp - dmg;
     if(hp <= 0){
         printf("\nZginąłeś.\n");
-        victory(rival, player);
+        victory(rival);
         return;
     } else{
         player->hp = hp;
@@ -32,6 +32,6 @@ void item_pickup(Player *player,int item){
 }
 
 //Handle victory
-void victory(Player *player, Player *rival){
-
+void victory(Player *player){
+    printf("\nGracz %d zwycięża!!\n",player->num);
 }
