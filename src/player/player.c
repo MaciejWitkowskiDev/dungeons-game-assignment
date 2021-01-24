@@ -14,9 +14,21 @@ void do_damage(Player *player, Player *rival, int dmg){
     }
 }
 
+/*
+    Key - 0
+    Pickaxe - 1
+    Sword - 2
+*/
+
 //Handle item pickup
 void item_pickup(Player *player,int item){
-
+    if(item == 0){
+        player->hasKey = true;
+    } else if(item == 1){
+        player->hasPickaxe = true;
+    } else if(item == 2){
+        player->hasSword = true;
+    }
 }
 
 //Handle victory
