@@ -14,6 +14,9 @@ List list_all_rooms(Board *board);
 //Print all rooms before we implement the mini-map
 void print_all_rooms(List *rooms);
 
+//Place the player keys.
+void place_keys(Board *board, time_t seed);
+
 //Populate the board with random events.
 void populate_board(Board *board,time_t seed);
 

@@ -5,9 +5,10 @@
 
 int main(){
     time_t seed = time(NULL);
-    Board game_board = generate_board(3, seed);
+    Board game_board = generate_board(20, seed);
     int choice = -1;
     place_treasure(&game_board,seed);
+    place_keys(&game_board,seed);
     Room* current_room = game_board;
 
     while(choice != 0){

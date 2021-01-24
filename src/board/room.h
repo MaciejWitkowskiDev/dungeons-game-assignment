@@ -1,11 +1,6 @@
 #include <stdbool.h>
 //Room props work like this:
 /*
-    room_type can be 1,2 or 3.
-    1 - Root room
-    2 - Intermediary room (in the middle)
-    3 - Terminary room (at the end)
-
     props[n] = true - 
     means that room contains a thing numbered n:
 
@@ -28,7 +23,8 @@ typedef struct room{
     struct room* right;
     //Room properties will go here
     bool hasTreasure;
-    bool hasKey;
+    bool hasP1Key;
+    bool hasP2Key;
     bool props[7];
 
 } Room;
