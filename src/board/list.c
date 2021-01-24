@@ -35,8 +35,14 @@ Room* pop(List *list){
     if(list_empty(list)){
         return NULL;
     }
+    if((*list)->next == *list){
+        Room *room = (*list)->data;
+        free(*list);
+        *list = NULL;
+        return room;
+    }
     Node *first = (*list)->next;
-    Room* room = first->data;
+    Room *room = first->data;
     (*list)->next = first->next;
     free(first);
     return room;
