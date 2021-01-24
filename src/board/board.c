@@ -13,9 +13,12 @@
 Board generate_board(short int maxdepth, time_t seed){
     //Create the root room
     Room* root = create_room(1,NULL,NULL,NULL);
+    root->room_id = 0;
 
     Room* left_of_root = create_room(2, root, NULL, NULL);
     Room* right_of_root = create_room(2,root,NULL,NULL);
+    left_of_root->room_id = rand();
+    right_of_root->room_id = rand();
     
     root->left = left_of_root;
     root->right = right_of_root;
@@ -32,20 +35,23 @@ Board generate_board(short int maxdepth, time_t seed){
         short int room_type = depth == maxdepth || depth == maxdepth - 1 ? 3 : 2;
         //if choice is one - generate only one extra room
         if(choice == 1){
-            printf("Creating one room of type %d.\n",room_type);
             Room* left_room = create_room(room_type,currently_serviced,NULL,NULL);
+            left_room->room_id = rand();
             push(&to_service, left_room);
             currently_serviced->left = left_room;
+            printf("Creating one room with id %d.\n",left_room->room_id);
         }
         //if choice is two - generate two extra rooms.
         else if(choice == 2){
-            printf("Creating two rooms of type %d.\n",room_type);
             Room* left_room = create_room(room_type,currently_serviced,NULL,NULL);
             Room* right_room = create_room(room_type,currently_serviced,NULL,NULL);
+            left_room->room_id = rand();
+            right_room->room_id = rand();
             push(&to_service, left_room);
             push(&to_service, right_room);
             currently_serviced->left = left_room;
             currently_serviced->right = right_room;
+            printf("Creating two rooms with id: %d and %d.\n",left_room->room_id,right_room->room_id);
         }
         else{
             printf("Wrong random number, board.c line 42");
@@ -65,20 +71,23 @@ Board generate_board(short int maxdepth, time_t seed){
         short int room_type = depth == maxdepth || depth == maxdepth - 1 ? 3 : 2;
         //if choice is one - generate only one extra room
         if(choice == 1){
-            printf("Creating one room of type %d.\n",room_type);
             Room* left_room = create_room(room_type,currently_serviced,NULL,NULL);
+            left_room->room_id = rand();
             push(&to_service, left_room);
             currently_serviced->left = left_room;
+            printf("Creating one room with id %d.\n",left_room->room_id);
         }
         //if choice is two - generate two extra rooms.
         else if(choice == 2){
-            printf("Creating two rooms of type %d.\n",room_type);
             Room* left_room = create_room(room_type,currently_serviced,NULL,NULL);
             Room* right_room = create_room(room_type,currently_serviced,NULL,NULL);
+            left_room->room_id = rand();
+            right_room->room_id = rand();
             push(&to_service, left_room);
             push(&to_service, right_room);
             currently_serviced->left = left_room;
             currently_serviced->right = right_room;
+            printf("Creating two rooms with id: %d and %d.\n",left_room->room_id,right_room->room_id);
         }
         else{
             printf("Wrong random number, board.c line 83");

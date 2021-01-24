@@ -11,7 +11,7 @@ int main(){
     Room* current_room = game_board;
 
     while(choice != 0){
-        printf("\n\nYou are currently in a room of type %d\n", current_room->room_type);
+        printf("\n\nYou are currently in a room of id %d\n", current_room->room_id);
         printf("1 - go right, 2 - go left 3- go back\n");
         if(current_room->hasTreasure){
             printf("\nTREASURE!!\n");

@@ -21,6 +21,7 @@
 
 //The room-node:
 typedef struct room{
+    int room_id;
     short int room_type;
     struct room* prev;
     struct room* left;
