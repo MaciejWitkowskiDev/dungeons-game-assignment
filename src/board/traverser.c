@@ -114,6 +114,24 @@ void populate_board(Board *board,time_t seed){
         current_room->props[prop] = true;
         current_room = pop(&to_service);
     }
+    current_room = root->left;
+    while(current_room != NULL){
+        printf("%d",current_room == NULL ? 0 : current_room->room_id);
+        if(current_room->left != NULL){
+            push(&to_service, current_room->left);
+        }
+        if(current_room->right != NULL){
+            push(&to_service,current_room->right);
+        }
+        if(current_room->hasTreasure || current_room->hasP1Key || current_room->hasP2Key){
+            current_room = pop(&to_service);
+            continue;
+        }
+
+        prop = rand() % (7 + 1 - 0) + 0;
+        current_room->props[prop] = true;
+        current_room = pop(&to_service);
+    }
 
 
 }
