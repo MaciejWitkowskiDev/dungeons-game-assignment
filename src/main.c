@@ -3,9 +3,20 @@
 #include <time.h>
 #include "./board/traverser.h"
 
+typedef struct player{
+    int hp;
+    bool hasKey;
+    bool hasPickaxe;
+    bool hasSword;
+} Player;
+
 int main(){
     time_t seed = time(NULL);
     Board game_board = generate_board(5, seed);
+    Player *player_1 = malloc(sizeof(Player)+1);
+    Player *player_2 = malloc(sizeof(Player)+1);
+    player_1->hp = 10;
+    player_2->hp = 10;
     int choice = -1;
     place_treasure(&game_board,seed);
     place_keys(&game_board,seed);
