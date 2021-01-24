@@ -98,7 +98,6 @@ void populate_board(Board *board,time_t seed){
     //populate right side of root
     current_room = root->right;
     while(current_room != NULL){
-        printf("%d",current_room == NULL ? 0 : current_room->room_id);
         if(current_room->left != NULL){
             push(&to_service, current_room->left);
         }
@@ -116,7 +115,6 @@ void populate_board(Board *board,time_t seed){
     }
     current_room = root->left;
     while(current_room != NULL){
-        printf("%d",current_room == NULL ? 0 : current_room->room_id);
         if(current_room->left != NULL){
             push(&to_service, current_room->left);
         }

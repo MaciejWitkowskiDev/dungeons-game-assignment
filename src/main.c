@@ -2,20 +2,16 @@
 #include <stdlib.h>
 #include <time.h>
 #include "./board/traverser.h"
-
-typedef struct player{
-    int hp;
-    bool hasKey;
-    bool hasPickaxe;
-    bool hasSword;
-} Player;
+#include "./player/player.h"
 
 int main(){
     time_t seed = time(NULL);
     Board game_board = generate_board(5, seed);
     Player *player_1 = malloc(sizeof(Player)+1);
     Player *player_2 = malloc(sizeof(Player)+1);
+    player_1->num = 1;
     player_1->hp = 10;
+    player_2->num = 2;
     player_2->hp = 10;
     int choice = -1;
     place_treasure(&game_board,seed);
@@ -23,6 +19,8 @@ int main(){
     populate_board(&game_board,seed);
     Room* current_room = game_board;
 
+
+    /*
     while(choice != 0){
         printf("\n\nYou are currently in a room of id %d\n", current_room->room_id);
         if(current_room->hasP1Key){
@@ -80,7 +78,9 @@ int main(){
             } else{
                 continue;
             }
+        
     }
+    */
     return 0;
     
 }
