@@ -9,6 +9,7 @@
 #include "./utils/clear.h"
 #include "./utils/prettyprint.h"
 #include "./utils/ui.h"
+#include "./utils/filehandler.h"
 
 int main(){
 
@@ -23,7 +24,7 @@ int main(){
         time_t seed = time(NULL);
         ppp("Zapisuję twój unikalny seed do katalogu seeds.");
         ppp("Możesz użyć go do wczytania mapy.");
-                
+
     }
     /*
     //Generate a board

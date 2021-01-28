@@ -9,7 +9,6 @@ int msleep(long msec);
 //Prettyprint (shortened name for easier typing)
 void ppp(char* t);
 
-//Print ascii art from file :-)
-void print_file(FILE *fptr);
+
 
 #endif

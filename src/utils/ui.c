@@ -3,6 +3,7 @@
 #include <stdlib.h>
 #include "clear.h"
 #include "prettyprint.h"
+#include "filehandler.h"
 
 //Show the main menu
 void show_main_menu(){
