@@ -14,23 +14,32 @@
 int main(){
 
     int choice = -1;
-    //show_introduction();
+    time_t seed;
+    show_introduction();
     show_main_menu();
     printf("\nTwój wybór: "); scanf("%d",&choice);
     clear_screen();
 
-    if(choice = 1){
+    if(choice == 1){
         //Create a seed
-        time_t seed = time(NULL);
-        ppp("Zapisuję twój unikalny seed do katalogu seeds.");
-        ppp("Możesz użyć go do wczytania mapy.");
+        seed = time(NULL);
+        ppp("Zapisuję unikalny seed mapy do katalogu seeds.");
+        ppp("Można użyć go do wczytania mapy.");
         if(save_seed(seed) == -1){
-            ppp("Nie udało mi się zapisać seeda. Sprawdź swoje uprawnienia.");
+            ppp("Nie udało mi się zapisać seeda. Sprawdź uprawnienia.");
         } else {
             ppp("Zrobione.");
         }
-
+        clear_screen();
+    } else if(choice == 2){
+        ppp("Wprowadź seed mapy: ");
+        scanf("%d", &seed);
+        ppp("Wczytano seed.");
+        clear_screen();
+    } else{
+        return 0;
     }
+
     /*
     //Generate a board
     Board game_board = generate_board(5, seed);
