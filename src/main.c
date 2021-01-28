@@ -1,14 +1,18 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <time.h>
+#include <errno.h>    
 #include <unistd.h>
 #include "./player/player.h"
 #include "./board/traverser.h"
 #include "./utils/clear.h"
+#include "./utils/prettyprint.h"
+
 
 int main(){
-    clear_screen();
+    //Create a seed
     time_t seed = time(NULL);
+    //Generate a board
     Board game_board = generate_board(5, seed);
     Player *player_1 = malloc(sizeof(Player)+1);
     Player *player_2 = malloc(sizeof(Player)+1);
@@ -21,8 +25,7 @@ int main(){
     populate_board(&game_board,seed);
     player_1->current_room = game_board;
     player_2->current_room = game_board;
-    clear_screen();
-    
+    ppp("Budzisz się w ciemnym pomieszczeniu. Wokoło widzisz pochodnie.");
     return 0;
     
 }
