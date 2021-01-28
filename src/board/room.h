@@ -1,3 +1,6 @@
+#ifndef INCLUDE_ROOM
+    #define INCLUDE_ROOM
+
 #include <stdbool.h>
 //Room props work like this:
 /*
@@ -31,3 +34,5 @@ typedef struct room{
 } Room;
 
 Room* create_room(short int room_type, Room* prev, Room* left, Room* right);
+
+#endif

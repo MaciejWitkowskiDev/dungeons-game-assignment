@@ -1,3 +1,6 @@
+#ifndef INCLUDE_TRAVERSER
+    #define INCLUDE_TRAVERSER
+
 /*
     This is a module that traverses the board and does things
     on the rooms. It implements BFS and DFS.
@@ -20,6 +23,8 @@ void place_keys(Board *board, time_t seed);
 
 //Populate the board with random events.
 void populate_board(Board *board,time_t seed);
+
+#endif
 
 
 

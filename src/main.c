@@ -3,6 +3,7 @@
 #include <time.h>
 #include <unistd.h>
 #include "./player/player.h"
+#include "./board/traverser.h"
 
 #ifdef _WIN32
 	    void clear_screen(){

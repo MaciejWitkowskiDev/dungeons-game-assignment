@@ -1,5 +1,9 @@
+#ifndef INCLUDE_PLAYER
+    #define INCLUDE_PLAYER
+
 #include <stdbool.h>
-#include "../board/traverser.h"
+#include "../player/player.h"
+#include "../board/room.h"
 
 //Very simple module to handle player actions.
 
@@ -21,3 +25,5 @@ void item_pickup(Player *player,Room *room, int item);
 
 //Handle victory
 void victory(Player *player);
+
+#endif
