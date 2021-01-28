@@ -93,6 +93,8 @@ void populate_board(Board *board,time_t seed){
     List to_service = create_list();
     Room* current_room = NULL;
     int prop;
+    bool placedPickaxe = false;
+    bool placedSword = false;
     srand(seed);
 
     //populate right side of root
@@ -108,8 +110,44 @@ void populate_board(Board *board,time_t seed){
             current_room = pop(&to_service);
             continue;
         }
-
+        /*
+         0 - Trap
+        1 - Riddle
+        2 - Shortcut
+        3 - Guard
+        4 - BlockedPath
+        5 - Pickaxe
+        6 - Sword
+        */
+        //Generate random prop
         prop = rand() % (7 + 1 - 0) + 0;
+        //If sword already placed, then change the prop value to something else.
+        if(prop == 6 && placedSword){
+            while(prop == 6){
+                prop = rand() % (7 + 1 - 0) + 0;
+            }
+        }
+        //If picked blocked path, but there is no pickaxe placed, then change.
+        if(prop == 4 && !placedPickaxe){
+            //If sword was already placed, then the value cannot be 6 either.
+            if(placedSword){
+                while(prop == 4 || prop == 6){
+                    prop = rand() % (7 + 1 - 0) + 0;
+                }
+            } else{
+                //If there is no sword, then the value can be 6, and just cannot be 4.
+                while(prop == 4){
+                    prop = rand() % (7 + 1 - 0) + 0;
+                }
+            }
+        }
+        
+        if(prop == 6 && !placedSword){
+            placedSword = true;
+        }
+        if(prop == 5 && !placedPickaxe){
+            placedPickaxe = true;
+        }
         current_room->props[prop] = true;
         current_room = pop(&to_service);
     }

@@ -21,6 +21,7 @@ typedef struct room{
     struct room* prev;
     struct room* left;
     struct room* right;
+    struct room* shortcut;
     //Room properties will go here
     bool hasTreasure;
     bool hasP1Key;
