@@ -30,7 +30,6 @@ void place_treasure(Board *board, time_t seed){
     //So now current_room is some random room at the edge of the map. Here is where the treasure will be.
 
     current_room->hasTreasure = true;
-    printf("\nPlacing the tresure in a room of id %d\n",current_room->room_id);
 }
 
 //Place the player keys.
@@ -62,7 +61,6 @@ void place_keys(Board *board, time_t seed){
     }
     //So now current_room is some random room at the edge of the map. Here is where the key1 will be.
     current_room->hasP1Key = true;
-    printf("\nPlacing the key1 in a room of id %d\n",current_room->room_id);
 
     choice = (short int)(rand() % (1-3) + 1);
     current_room = NULL;
@@ -85,7 +83,6 @@ void place_keys(Board *board, time_t seed){
         }
     }
     current_room->hasP2Key = true;
-    printf("\nPlacing the key2 in a room of id %d\n",current_room->room_id);
 }
 
 void populate_board(Board *board,time_t seed){

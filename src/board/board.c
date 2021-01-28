@@ -39,7 +39,6 @@ Board generate_board(short int maxdepth, time_t seed){
             left_room->room_id = rand();
             push(&to_service, left_room);
             currently_serviced->left = left_room;
-            printf("Creating one room with id %d.\n",left_room->room_id);
         }
         //if choice is two - generate two extra rooms.
         else if(choice == 2){
@@ -51,7 +50,6 @@ Board generate_board(short int maxdepth, time_t seed){
             push(&to_service, right_room);
             currently_serviced->left = left_room;
             currently_serviced->right = right_room;
-            printf("Creating two rooms with id: %d and %d.\n",left_room->room_id,right_room->room_id);
         }
         else{
             printf("Wrong random number, board.c line 42");
@@ -75,7 +73,6 @@ Board generate_board(short int maxdepth, time_t seed){
             left_room->room_id = rand();
             push(&to_service, left_room);
             currently_serviced->left = left_room;
-            printf("Creating one room with id %d.\n",left_room->room_id);
         }
         //if choice is two - generate two extra rooms.
         else if(choice == 2){
@@ -87,7 +84,6 @@ Board generate_board(short int maxdepth, time_t seed){
             push(&to_service, right_room);
             currently_serviced->left = left_room;
             currently_serviced->right = right_room;
-            printf("Creating two rooms with id: %d and %d.\n",left_room->room_id,right_room->room_id);
         }
         else{
             printf("Wrong random number, board.c line 83");

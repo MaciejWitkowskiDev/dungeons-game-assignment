@@ -1,3 +1,4 @@
+#define MAX_LEN 128
 #include <time.h>
 #include <errno.h>
 #include <stdlib.h>
@@ -36,4 +37,12 @@ void ppp(char* t){
         msleep((long)delay);
     }
     msleep(1000);
+}
+
+void print_logo(FILE *fptr)
+{
+    char read_string[MAX_LEN];
+ 
+    while(fgets(read_string,sizeof(read_string),fptr) != NULL)
+        printf("%s",read_string);
 }

@@ -9,4 +9,6 @@ int msleep(long msec);
 //Prettyprint (shortened name for easier typing)
 void ppp(char* t);
 
+void print_logo();
+
 #endif

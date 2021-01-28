@@ -10,6 +10,27 @@
 
 
 int main(){
+
+    char *filename = "logo.txt";
+    FILE *fptr = NULL;
+ 
+    if((fptr = fopen(filename,"r")) == NULL)
+    {
+        fprintf(stderr,"error opening %s\n",filename);
+        return 1;
+    }
+    
+    //Introduction
+    clear_screen();
+    ppp("Budzisz się w ciemnym pomieszczeniu. Wokoło widzisz pochodnie.");
+    ppp("To tu rozpoczyna się twoja podróż.");
+    clear_screen();
+    print_logo(fptr);
+    fclose(fptr);
+    msleep(1000);
+    clear_screen();
+
+
     //Create a seed
     time_t seed = time(NULL);
     //Generate a board
@@ -25,7 +46,10 @@ int main(){
     populate_board(&game_board,seed);
     player_1->current_room = game_board;
     player_2->current_room = game_board;
-    ppp("Budzisz się w ciemnym pomieszczeniu. Wokoło widzisz pochodnie.");
+
+    
+    
+
     return 0;
     
 }
