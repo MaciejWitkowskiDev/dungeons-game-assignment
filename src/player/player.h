@@ -8,6 +8,7 @@ typedef struct player{
     bool hasKey;
     bool hasPickaxe;
     bool hasSword;
+    Room* current_room;
 } Player;
 
 
