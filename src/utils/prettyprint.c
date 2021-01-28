@@ -39,7 +39,7 @@ void ppp(char* t){
     msleep(1000);
 }
 
-void print_art(FILE *fptr)
+void print_file(FILE *fptr)
 {
     char read_string[MAX_LEN];
  

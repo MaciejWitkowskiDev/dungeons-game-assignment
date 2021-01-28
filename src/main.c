@@ -7,41 +7,11 @@
 #include "./board/traverser.h"
 #include "./utils/clear.h"
 #include "./utils/prettyprint.h"
-
+#include "./utils/ui.h"
 
 int main(){
 
-    char *filename_logo = "./ascii_arts/logo.txt";
-    char *filename_menu_header = "./ascii_arts/header.txt";
-    FILE *fptr_logo = NULL;
-    FILE *fptr_header = NULL;
- 
-    if((fptr_logo = fopen(filename_logo,"r")) == NULL)
-    {
-        fprintf(stderr,"error opening %s\n",filename_logo);
-        return 1;
-    }
-
-    if((fptr_header = fopen(filename_menu_header,"r")) == NULL)
-    {
-        fprintf(stderr,"error opening %s\n",filename_menu_header);
-        return 1;
-    }
-    
-    //Introduction
-    clear_screen();
-    ppp("Budzisz się w ciemnym pomieszczeniu. Wokoło widzisz pochodnie.");
-    ppp("To tu rozpoczyna się twoja podróż.");
-    clear_screen();
-    print_art(fptr_logo);
-    fclose(fptr_logo);
-    msleep(2000);
-    clear_screen();
-    print_art(fptr_header);
-    fclose(fptr_header);
-
-    
-
+    show_introduction();
 
     //Create a seed
     time_t seed = time(NULL);

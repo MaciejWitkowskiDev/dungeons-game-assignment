@@ -10,6 +10,6 @@ int msleep(long msec);
 void ppp(char* t);
 
 //Print ascii art from file :-)
-void print_art(FILE *fptr);
+void print_file(FILE *fptr);
 
 #endif
