@@ -23,8 +23,7 @@
            return 0;
         }
 	    
-	#endif
-
+#endif
 
 int main(){
     clear_screen();
