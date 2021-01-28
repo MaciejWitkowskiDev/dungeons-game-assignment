@@ -11,12 +11,20 @@
 
 int main(){
 
-    char *filename = "logo.txt";
-    FILE *fptr = NULL;
+    char *filename_logo = "./ascii_arts/logo.txt";
+    char *filename_menu_header = "./ascii_arts/header.txt";
+    FILE *fptr_logo = NULL;
+    FILE *fptr_header = NULL;
  
-    if((fptr = fopen(filename,"r")) == NULL)
+    if((fptr_logo = fopen(filename_logo,"r")) == NULL)
     {
-        fprintf(stderr,"error opening %s\n",filename);
+        fprintf(stderr,"error opening %s\n",filename_logo);
+        return 1;
+    }
+
+    if((fptr_header = fopen(filename_menu_header,"r")) == NULL)
+    {
+        fprintf(stderr,"error opening %s\n",filename_menu_header);
         return 1;
     }
     
@@ -25,10 +33,14 @@ int main(){
     ppp("Budzisz się w ciemnym pomieszczeniu. Wokoło widzisz pochodnie.");
     ppp("To tu rozpoczyna się twoja podróż.");
     clear_screen();
-    print_logo(fptr);
-    fclose(fptr);
-    msleep(1000);
+    print_art(fptr_logo);
+    fclose(fptr_logo);
+    msleep(2000);
     clear_screen();
+    print_art(fptr_header);
+    fclose(fptr_header);
+
+    
 
 
     //Create a seed
