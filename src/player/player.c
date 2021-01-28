@@ -1,5 +1,4 @@
 #include "player.h"
-#include "room.h"
 #include <stdio.h>
 
 //Do Damage to player.

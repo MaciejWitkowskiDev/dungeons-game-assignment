@@ -1,4 +1,5 @@
 #include <stdbool.h>
+#include "../board/traverser.h"
 
 //Very simple module to handle player actions.
 

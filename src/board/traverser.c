@@ -141,7 +141,7 @@ void populate_board(Board *board,time_t seed){
                 }
             }
         }
-        
+
         if(prop == 6 && !placedSword){
             placedSword = true;
         }

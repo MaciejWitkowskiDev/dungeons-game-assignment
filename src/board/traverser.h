@@ -4,6 +4,7 @@
 */
 #include "board.h"
 #include "list.h"
+#include <time.h>
 
 //Place the treasure in a random terminary room DFS-style :)
 void place_treasure(Board *board, time_t seed);

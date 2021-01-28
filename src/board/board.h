@@ -1,4 +1,5 @@
 #include "room.h"
+#include <time.h>
 
 typedef Room* Board;
 
