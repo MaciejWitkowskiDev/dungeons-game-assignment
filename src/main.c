@@ -14,13 +14,13 @@ int main(){
     player_2->num = 2;
     player_2->hp = 10;
     int choice = -1;
+
     place_treasure(&game_board,seed);
     place_keys(&game_board,seed);
     populate_board(&game_board,seed);
     Room* current_room = game_board;
 
-
-    /*
+    
     while(choice != 0){
         printf("\n\nYou are currently in a room of id %d\n", current_room->room_id);
         if(current_room->hasP1Key){
@@ -80,7 +80,7 @@ int main(){
             }
         
     }
-    */
+    
     return 0;
     
 }
