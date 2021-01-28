@@ -24,6 +24,11 @@ int main(){
         time_t seed = time(NULL);
         ppp("Zapisuję twój unikalny seed do katalogu seeds.");
         ppp("Możesz użyć go do wczytania mapy.");
+        if(save_seed(seed) == -1){
+            ppp("Nie udało mi się zapisać seeda. Sprawdź swoje uprawnienia.");
+        } else {
+            ppp("Zrobione.");
+        }
 
     }
     /*
