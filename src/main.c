@@ -11,7 +11,10 @@
 
 int main(){
 
+    int choice = -1;
     show_introduction();
+    show_main_menu();
+    printf("\nTwój wybór: "); scanf("%d",&choice);
 
     //Create a seed
     time_t seed = time(NULL);

@@ -1,0 +1,6 @@
+
+[1] Nowa gra
+
+[2] Wczytaj seed
+
+[3] Wyjdź

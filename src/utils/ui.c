@@ -4,7 +4,21 @@
 #include "clear.h"
 #include "prettyprint.h"
 
+//Show the main menu
+void show_main_menu(){
+    char *filename_menu = "./text_chunks/main_menu.txt";
+    FILE *fptr_menu = NULL;
+     if((fptr_menu = fopen(filename_menu,"r")) == NULL)
+    {
+        fprintf(stderr,"error opening %s\n",filename_menu);
+        return;
+    }
+    print_file(fptr_menu);
+    fclose(fptr_menu);
+    printf("\n");
+}
 
+//Show the intro sequence
 void show_introduction(){
     char *filename_logo = "./ascii_arts/logo.txt";
     char *filename_menu_header = "./ascii_arts/header.txt";
