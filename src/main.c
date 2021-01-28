@@ -1,6 +1,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <time.h>
+#include <string.h>
 #include <errno.h>    
 #include <unistd.h>
 #include "./player/player.h"
@@ -12,12 +13,19 @@
 int main(){
 
     int choice = -1;
-    show_introduction();
+    //show_introduction();
     show_main_menu();
     printf("\nTwój wybór: "); scanf("%d",&choice);
+    clear_screen();
 
-    //Create a seed
-    time_t seed = time(NULL);
+    if(choice = 1){
+        //Create a seed
+        time_t seed = time(NULL);
+        ppp("Zapisuję twój unikalny seed do katalogu seeds.");
+        ppp("Możesz użyć go do wczytania mapy.");
+                
+    }
+    /*
     //Generate a board
     Board game_board = generate_board(5, seed);
     Player *player_1 = malloc(sizeof(Player)+1);
@@ -32,7 +40,7 @@ int main(){
     player_1->current_room = game_board;
     player_2->current_room = game_board;
 
-    
+    */
     
 
     return 0;
