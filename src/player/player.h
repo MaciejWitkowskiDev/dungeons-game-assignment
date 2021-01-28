@@ -16,7 +16,7 @@ typedef struct player{
 void do_damage(Player *player, Player *rival, int dmg);
 
 //Handle item pickup
-void item_pickup(Player *player,int item);
+void item_pickup(Player *player,Room *room, int item);
 
 //Handle victory
 void victory(Player *player);
