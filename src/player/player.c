@@ -6,7 +6,7 @@
 void do_damage(Player *player, Player *rival, int dmg){
     int hp = player->hp - dmg;
     if(hp <= 0){
-        printf("\nZginąłeś.\n");
+        printf("\nGracz %d - Zginąłeś.\n",player->num);
         victory(rival);
         return;
     } else{
