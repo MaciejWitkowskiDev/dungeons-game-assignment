@@ -4,12 +4,11 @@
 #include <string.h>
 #include <errno.h>    
 #include <unistd.h>
-#include "./player/player.h"
-#include "./board/traverser.h"
 #include "./utils/clear.h"
 #include "./utils/prettyprint.h"
 #include "./utils/ui.h"
 #include "./utils/filehandler.h"
+#include "./game/game.h"
 
 int main(){
 
@@ -31,32 +30,24 @@ int main(){
             ppp("Zrobione.");
         }
         clear_screen();
+        start_game(seed);
+        clear_screen();
+        ppp("Dziękuję za grę. Do zobaczenia następnym razem!");
+        ppp("~ Maciej Witkowski");
+        return 0;
     } else if(choice == 2){
         ppp("Wprowadź seed mapy: ");
         scanf("%d", &seed);
         ppp("Wczytano seed.");
         clear_screen();
+        start_game(seed);
+        clear_screen();
+        ppp("Dziękuję za grę. Do zobaczenia następnym razem!");
+        ppp("~ Maciej Witkowski");
+        return 0;
     } else{
         return 0;
     }
-
-    /*
-    //Generate a board
-    Board game_board = generate_board(5, seed);
-    Player *player_1 = malloc(sizeof(Player)+1);
-    Player *player_2 = malloc(sizeof(Player)+1);
-    player_1->num = 1;
-    player_1->hp = 10;
-    player_2->num = 2;
-    player_2->hp = 10;
-    place_treasure(&game_board,seed);
-    place_keys(&game_board,seed);
-    populate_board(&game_board,seed);
-    player_1->current_room = game_board;
-    player_2->current_room = game_board;
-
-    */
-    
 
     return 0;
     
