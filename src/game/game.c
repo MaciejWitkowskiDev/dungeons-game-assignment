@@ -32,7 +32,7 @@ void start_game(time_t seed){
     Player *turn = player_1;
     Player *rival = player_2;
 
-    print_room_desc(game_board,turn, rival);
+    print_room_desc(game_board, turn);
     msleep(5000);
 
     while(input != "exit"){
