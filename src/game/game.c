@@ -13,7 +13,7 @@ void start_game(time_t seed){
     ppp("Generuję losową planszę...");
     clear_screen();
     //Generate a board
-    Board game_board = generate_board(5, seed);
+    Board game_board = generate_board(15, seed);
     place_treasure(&game_board,seed);
     place_keys(&game_board,seed);
     populate_board(&game_board,seed);
