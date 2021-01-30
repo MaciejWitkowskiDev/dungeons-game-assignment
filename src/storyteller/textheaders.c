@@ -38,4 +38,3 @@ char* random_riddle(){
     int header = rand() % (4 + 1 - 0) + 0;
     return &riddles[header][0];
 }
-

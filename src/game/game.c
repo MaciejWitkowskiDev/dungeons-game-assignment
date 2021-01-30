@@ -21,10 +21,20 @@ void start_game(time_t seed){
     //Create player objects
     Player *player_1 = malloc(sizeof(Player)+1);
     Player *player_2 = malloc(sizeof(Player)+1);
+
+    player_1->hasKey = false;
+    player_1->hasPickaxe = false;
+    player_1->hasSword = false;
+    
+    player_2->hasKey = false;
+    player_2->hasPickaxe = false;
+    player_2->hasSword = false;
+
     player_1->num = 1;
     player_1->hp = 10;
     player_2->num = 2;
     player_2->hp = 10;
+
     player_1->current_room = game_board;
     player_2->current_room = game_board;
 
@@ -33,14 +43,14 @@ void start_game(time_t seed){
     Player *rival = player_2;
 
     ppp("Budzicie się w ciemnym pomieszczeniu. Lata poszukiwań doprowadziły was właśnie tutaj.\nSkarb jest już blisko. \nPozostaje pytanie, kto pierwszy go znajdzie? \nNie macie wątpliwości - jedyna droga prowadzi naprzód. \nPora rozpocząć poszukiwania.\n\n");
-    msleep(5000);
+    msleep(2000);
 
     while(input != "exit"){
         rival = turn->num == 1 ? player_2 : player_1;
         clear_screen();
         print_player_stats(turn);
         print_movement_opts(turn->current_room);
-        printf("\nGdzie chcesz pójść? : \n"); scanf("\n%c", &input);
+        printf("\nGdzie chcesz pójść? : "); scanf(" %c",&input);
 
         if(input[0] == 'l' && turn->current_room->left != NULL){
             turn->current_room = turn->current_room->left;
@@ -51,13 +61,10 @@ void start_game(time_t seed){
         } else if(input[0] == 'e'){
             return;
         } else {
-            ppp("Nie możesz wykonać takiego ruchu!");
             clear_screen();
             continue;
         }
-        print_room_desc(turn->current_room,turn);
-        msleep(10000);
-        //handle_room(turn->current_room)
+        handle_room(turn->current_room,turn, rival);
 
         //if(handle_event(input, turn, rival) == -1){
         //    return;
