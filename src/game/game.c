@@ -1,9 +1,9 @@
 #include "game.h"
-#include "./player/player.h"
-#include "./board/traverser.h"
-#include "./utils/clear.h"
-#include "./utils/prettyprint.h"
-#include "./storyteller/storyteller.h"
+#include "../player/player.h"
+#include "../board/traverser.h"
+#include "../utils/clear.h"
+#include "../utils/prettyprint.h"
+#include "../storyteller/storyteller.h"
 
 
 void start_game(time_t seed){
@@ -11,6 +11,7 @@ void start_game(time_t seed){
     char input[10];
 
     ppp("Generuję losową planszę...");
+    clear_screen();
     //Generate a board
     Board game_board = generate_board(5, seed);
     place_treasure(&game_board,seed);
@@ -34,14 +35,14 @@ void start_game(time_t seed){
     while(input != "exit"){
         rival = turn->num == 1 ? player_2 : player_1;
         
-        print_player_stats(turn);
         print_room_desc(turn->current_room);
-        ppp("Co postanowisz zrobić?");
+        //print_player_stats(turn);
+        ppp("Co postanowisz zrobić? : ");
         scanf("%s",&input);
 
-        if(handle_event(input, turn, rival) == -1){
-            return;
-        }
+        //if(handle_event(input, turn, rival) == -1){
+        //    return;
+        //}
 
         if(turn->num == 1) { turn = player_2; }
         else { turn = player_1; }

@@ -14,7 +14,7 @@ int main(){
 
     int choice = -1;
     time_t seed;
-    show_introduction();
+    //show_introduction();
     show_main_menu();
     printf("\nTwój wybór: "); scanf("%d",&choice);
     clear_screen();
