@@ -209,22 +209,29 @@ void print_player_stats(Player* player){
 
 int handle_room(Room* room, Player* player, Player* rival){
     char* desc_info = print_room_desc(room,player);
+    char input[15] = {'\0'};
     print_event_choices(desc_info, room, player, rival);
     bool isRiddle = ((int)desc_info[0] >= 65) && ((int)desc_info[0] <= 90);
     if(isRiddle){
-        char correct[20] = {'\0'};
+        char* correct;
         char first_let = desc_info[0];
         if(first_let == 'J'){
-            *correct = *"horyzont";
+            correct = "horyzont";
         } else if(first_let == 'L'){
-            *correct = *"papier";
+            correct = "papier";
         } else if(first_let == 'C'){
-            *correct = *"czas";
+            correct = "czas";
         } else if(first_let == 'B'){
-            *correct = *"wiatr";
+            correct = "wiatr";
         } else if(first_let == 'N'){
-            *correct = *"ryba";
+            correct = "ryba";
         }
-        printf("%s",correct);
+        scanf("%s",&input);
+        if(strcmp(input, correct) == 0){
+            ppp("Dobra odpowiedź! Otrzymujesz 5 bonusowych punktów zdrowia!");
+            player->hp += 5;
+        } else {
+            ppp("Hmm.. Nic się nie stało. Wygląda na to, że to błędna odpowiedź.");        
+        }
     }
 }

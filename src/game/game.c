@@ -18,6 +18,12 @@ void start_game(time_t seed){
     place_keys(&game_board,seed);
     populate_board(&game_board,seed);
 
+    //REMOVE LATER!!
+    for(int i = 0; i < 7; i++){
+        game_board->left->props[i] = false;
+    }
+    game_board->left->props[1] = true;
+
     //Create player objects
     Player *player_1 = malloc(sizeof(Player)+1);
     Player *player_2 = malloc(sizeof(Player)+1);
@@ -65,10 +71,6 @@ void start_game(time_t seed){
             continue;
         }
         handle_room(turn->current_room,turn, rival);
-
-        //if(handle_event(input, turn, rival) == -1){
-        //    return;
-        //}
 
         if(turn->num == 1) { turn = player_2; }
         else { turn = player_1; }
