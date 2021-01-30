@@ -22,7 +22,7 @@ void start_game(time_t seed){
     for(int i = 0; i < 7; i++){
         game_board->left->props[i] = false;
     }
-    game_board->left->props[1] = true;
+    game_board->left->props[3] = true;
 
     //Create player objects
     Player *player_1 = malloc(sizeof(Player)+1);
@@ -38,8 +38,10 @@ void start_game(time_t seed){
 
     player_1->num = 1;
     player_1->hp = 10;
+    player_1->max_hp = 10;
     player_2->num = 2;
     player_2->hp = 10;
+    player_2->max_hp = 10;
 
     player_1->current_room = game_board;
     player_2->current_room = game_board;

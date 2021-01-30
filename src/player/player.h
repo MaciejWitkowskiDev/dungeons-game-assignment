@@ -10,6 +10,7 @@
 typedef struct player{
     short int num;
     int hp;
+    int max_hp;
     bool hasKey;
     bool hasPickaxe;
     bool hasSword;
