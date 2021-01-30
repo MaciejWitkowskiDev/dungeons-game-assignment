@@ -33,7 +33,8 @@ int main(){
         start_game(seed);
         clear_screen();
         ppp("Dziękuję za grę. Do zobaczenia następnym razem!");
-        ppp("~ Maciej Witkowski");
+        ppp("~ Maciej Witkowski\n\n");
+        msleep(3000);
         return 0;
     } else if(choice == 2){
         ppp("Wprowadź seed mapy: ");
@@ -43,7 +44,8 @@ int main(){
         start_game(seed);
         clear_screen();
         ppp("Dziękuję za grę. Do zobaczenia następnym razem!");
-        ppp("~ Maciej Witkowski");
+        ppp("~ Maciej Witkowski\n\n");
+        msleep(3000);
         return 0;
     } else{
         return 0;

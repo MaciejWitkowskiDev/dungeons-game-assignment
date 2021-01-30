@@ -115,6 +115,9 @@ void print_movement_opts(Room* room){
     if(room->prev != NULL){
         printf("c - aby się cofnąć.\n");
     }
+    if(room->shortcut != NULL){
+        printf("s - aby skorzystać ze skrótu.\n");
+    }
     printf("\n");
 }
 
@@ -301,7 +304,7 @@ int handle_room(Room* room, Player* player, Player* rival){
                         room->props[3] = false;
                         return 0;
                     } else {
-                        ppp("Niestety, miałeś za mało punktów zdrowia by przeżyć ten cios.");
+                        ppp("Miałeś za mało punktów zdrowia by przeżyć ten cios.");
                         ppp("Tu kończy się twoja podróż.");
                         return 1;
                     }

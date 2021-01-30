@@ -145,6 +145,9 @@ void populate_board(Board *board,time_t seed){
         if(prop == 5 && !placedPickaxe){
             placedPickaxe = true;
         }
+        if(prop == 2){
+            current_room->shortcut = root;
+        }
         current_room->props[prop] = true;
         current_room = pop(&to_service);
     }

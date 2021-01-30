@@ -18,12 +18,6 @@ void start_game(time_t seed){
     place_keys(&game_board,seed);
     populate_board(&game_board,seed);
 
-    //REMOVE LATER!!
-    for(int i = 0; i < 7; i++){
-        game_board->left->props[i] = false;
-    }
-    game_board->left->props[3] = true;
-
     //Create player objects
     Player *player_1 = malloc(sizeof(Player)+1);
     Player *player_2 = malloc(sizeof(Player)+1);
@@ -66,13 +60,21 @@ void start_game(time_t seed){
             turn->current_room = turn->current_room->right;
         } else if(input[0] == 'c' && turn->current_room->prev != NULL){
             turn->current_room = turn->current_room->prev;
+        } else if(input[0] == 's' && turn->current_room->shortcut != NULL){
+            turn->current_room = game_board;
         } else if(input[0] == 'e'){
             return;
         } else {
             clear_screen();
             continue;
         }
-        handle_room(turn->current_room,turn, rival);
+        
+        int next_step = handle_room(turn->current_room,turn, rival);
+        if(next_step == 1){
+            msleep(3000);
+            clear_screen();
+            return;
+        }
 
         if(turn->num == 1) { turn = player_2; }
         else { turn = player_1; }
