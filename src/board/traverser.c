@@ -117,11 +117,11 @@ void populate_board(Board *board,time_t seed){
         6 - Sword
         */
         //Generate random prop
-        prop = rand() % (7 + 1 - 0) + 0;
+        prop = rand() % (6 + 1 - 0) + 0;
         //If sword already placed, then change the prop value to something else.
         if(prop == 6 && placedSword){
             while(prop == 6){
-                prop = rand() % (7 + 1 - 0) + 0;
+                prop = rand() % (6 + 1 - 0) + 0;
             }
         }
         //If picked blocked path, but there is no pickaxe placed, then change.
@@ -129,12 +129,12 @@ void populate_board(Board *board,time_t seed){
             //If sword was already placed, then the value cannot be 6 either.
             if(placedSword){
                 while(prop == 4 || prop == 6){
-                    prop = rand() % (7 + 1 - 0) + 0;
+                    prop = rand() % (6 + 1 - 0) + 0;
                 }
             } else{
                 //If there is no sword, then the value can be 6, and just cannot be 4.
                 while(prop == 4){
-                    prop = rand() % (7 + 1 - 0) + 0;
+                    prop = rand() % (6 + 1 - 0) + 0;
                 }
             }
         }
@@ -161,7 +161,7 @@ void populate_board(Board *board,time_t seed){
             continue;
         }
 
-        prop = rand() % (7 + 1 - 0) + 0;
+        prop = rand() % (6 + 1 - 0) + 0;
         current_room->props[prop] = true;
         current_room = pop(&to_service);
     }
