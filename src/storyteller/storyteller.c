@@ -97,7 +97,7 @@ char* print_room_desc(Room* room, Player* turn){
     }
 
 void print_movement_opts(Room* room){
-    if(room->props[4]){
+    if(room->props[4] == true){
         ppp("Blokada nie pozwala ci iść dalej!");
         if(room->prev != NULL){
             printf("c - aby się cofnąć.\n");
@@ -236,11 +236,10 @@ int handle_room(Room* room, Player* player, Player* rival){
     }
 
     //Handling traps
-    if(room->props[0]){
-        int correct = rand() % (2 + 1 - 1) + 1;
-        printf("%d\n\n",correct);
+    if(room->props[0] == true){
+        int correct = rand() % (3 + 1 - 1) + 1;
         scanf("%d",&numerical_input);
-        if(numerical_input == correct){
+        if(numerical_input == correct || numerical_input == correct - 1){
             ppp("Nic się nie stało. Wygląda na to, że podjąłeś właściwą decyzję.");
             room->props[0] = false;
             return 0;
@@ -289,8 +288,8 @@ int handle_room(Room* room, Player* player, Player* rival){
             ppp("Stajesz do walki!");
             if(player->hasSword){
                 ppp("Dobywasz miecza!");
-                fate = rand() % (10 + 1 - 1) + 1;
-                if(fate == 10){
+                fate = rand() % (15 + 1 - 1) + 1;
+                if(fate == 15){
                     ppp("Strażnik okazał się dla ciebie za silny.");
                     ppp("Tu kończy się twoja podróż.");
                     do_damage(player, rival, 10000);
@@ -311,8 +310,8 @@ int handle_room(Room* room, Player* player, Player* rival){
                 }
             } else {
                 ppp("Przydałaby się jakaś broń...");
-                fate = rand() % (4 + 1 - 1) + 1;
-                if(fate == 4){
+                fate = rand() % (8 + 1 - 1) + 1;
+                if(fate == 8){
                     ppp("Strażnik okazał się dla ciebie za silny.");
                     ppp("Tu kończy się twoja podróż.");
                     do_damage(player, rival, 10000);

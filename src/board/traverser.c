@@ -87,6 +87,11 @@ void place_keys(Board *board, time_t seed){
 
 void populate_board(Board *board,time_t seed){
     Room* root = *board;
+    for(int i = 0; i < 7; i++){
+        root->props[i] = false;
+    }
+    root->shortcut = NULL;
+    root->prev = NULL;
     List to_service = create_list();
     Room* current_room = NULL;
     int prop;
