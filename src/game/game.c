@@ -32,13 +32,30 @@ void start_game(time_t seed){
     Player *turn = player_1;
     Player *rival = player_2;
 
+    print_room_desc(game_board,turn, rival);
+    msleep(5000);
+
     while(input != "exit"){
         rival = turn->num == 1 ? player_2 : player_1;
-        
-        print_room_desc(turn->current_room);
-        //print_player_stats(turn);
-        ppp("Co postanowisz zrobić? : ");
-        scanf("%s",&input);
+        clear_screen();
+        print_player_stats(turn);
+        print_movement_opts(turn->current_room);
+        printf("\nGdzie chcesz pójść? : \n"); scanf("\n%c", &input);
+
+        if(input[0] == 'l' && turn->current_room->left != NULL){
+            turn->current_room = turn->current_room->left;
+        } else if(input[0] == 'p' && turn->current_room->right != NULL){
+            turn->current_room = turn->current_room->right;
+        } else if(input[0] == 'c' && turn->current_room->prev != NULL){
+            turn->current_room = turn->current_room->prev;
+        } else if(input[0] == 'e'){
+            return;
+        } else {
+            ppp("Nie możesz wykonać takiego ruchu!");
+            clear_screen();
+            continue;
+        }
+        //handle_room(turn->current_room)
 
         //if(handle_event(input, turn, rival) == -1){
         //    return;

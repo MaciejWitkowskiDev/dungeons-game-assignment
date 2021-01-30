@@ -6,12 +6,18 @@
 #include "../board/room.h"
 
 //Print a room description.
-void print_room_desc(Room* room);
+void print_room_desc(Room* room, Player* player, Player* rival);
 
 //Print player stats.
 void print_player_stats(Player* player);
 
-//Handle the player choice.
-int handle_event(char input[10], Player* player, Player* rival);
+//Print the prop info
+void print_prop_choice(Room* room, Player* player, Player* rival);
+
+//Handle the room.
+int handle_room(Room* room, Player* player, Player* rival);
+
+void print_movement_opts(Room* room);
+
 
 #endif
