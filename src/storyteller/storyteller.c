@@ -98,7 +98,7 @@ char* print_room_desc(Room* room, Player* turn){
 
 void print_movement_opts(Room* room){
     if(room->props[4] == true){
-        ppp("Blokada nie pozwala ci iść dalej!");
+        ppp("Blokada nie pozwala ci iść dalej!\n");
         if(room->prev != NULL){
             printf("c - aby się cofnąć.\n");
         }

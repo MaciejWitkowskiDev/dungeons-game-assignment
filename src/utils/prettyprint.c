@@ -31,7 +31,7 @@ void ppp(char* t){
     int delay = 100;
     printf("\n");
     for (i=t; *i; i++) {
-        delay = rand() % (100 + 1 - 20) + 20;
+        delay = rand() % (50 + 1 - 5) + 5;
         //Uncomment this line for instant typing:
         //delay = 0;
         putchar(*i);
