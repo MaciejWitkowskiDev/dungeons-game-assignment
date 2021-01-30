@@ -6,7 +6,7 @@
 #include "../board/room.h"
 
 //Print a room description.
-void print_room_desc(Room* room, Player* turn);
+char* print_room_desc(Room* room, Player* turn);
 
 //Print player stats.
 void print_player_stats(Player* player);

@@ -32,7 +32,7 @@ void start_game(time_t seed){
     Player *turn = player_1;
     Player *rival = player_2;
 
-    print_room_desc(game_board, turn);
+    ppp("Budzicie się w ciemnym pomieszczeniu. Lata poszukiwań doprowadziły was właśnie tutaj.\nSkarb jest już blisko. \nPozostaje pytanie, kto pierwszy go znajdzie? \nNie macie wątpliwości - jedyna droga prowadzi naprzód. \nPora rozpocząć poszukiwania.\n\n");
     msleep(5000);
 
     while(input != "exit"){
@@ -55,6 +55,8 @@ void start_game(time_t seed){
             clear_screen();
             continue;
         }
+        print_room_desc(turn->current_room,turn);
+        msleep(10000);
         //handle_room(turn->current_room)
 
         //if(handle_event(input, turn, rival) == -1){

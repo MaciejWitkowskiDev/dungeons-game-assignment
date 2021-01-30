@@ -4,7 +4,8 @@
 //Return random room header.
 char* random_room_header();
 
-//Return the root header.
-char* root_header();
+
+//Return a random riddle
+char* random_riddle();
 
 #endif
