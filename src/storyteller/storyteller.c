@@ -115,7 +115,7 @@ void print_movement_opts(Room* room){
     if(room->prev != NULL){
         printf("c - aby się cofnąć.\n");
     }
-    if(room->shortcut != NULL){
+    if(room->props[2]){
         printf("s - aby skorzystać ze skrótu.\n");
     }
     printf("\n");
