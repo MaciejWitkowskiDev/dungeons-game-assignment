@@ -6,7 +6,7 @@
 #include "../storyteller/storyteller.h"
 
 
-void start_game(time_t seed){
+void start_game(time_t seed, int difficulty){
 
     char input[10];
 

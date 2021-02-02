@@ -2,7 +2,7 @@
 #ifndef INCLUDE_GAME
     #define INCLUDE_GAME
 
-void start_game(time_t seed);
+void start_game(time_t seed,int difficulty);
 
 
 #endif

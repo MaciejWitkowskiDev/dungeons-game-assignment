@@ -14,6 +14,7 @@ int main(){
 
     int choice = -1;
     time_t seed;
+    int difficulty = -1;
     show_introduction();
     show_main_menu();
     printf("\nTwój wybór: "); scanf("%d",&choice);
@@ -29,8 +30,17 @@ int main(){
         } else {
             ppp("Zrobione.");
         }
+        ppp("Podaj poziom trudności, od 1 do 5. Im wyższą liczbę podasz, tym większa będzie mapa.");
+        while(difficulty < 1 || difficulty > 5){
+            ppp("Wprowadź trudność: ");
+            scanf("%d",&difficulty);
+            if(difficulty < 1 || difficulty > 5){
+                ppp("Nieprawidłowy przedział trudności.");
+            }
+        }
+        difficulty *= 5;
         clear_screen();
-        start_game(seed);
+        start_game(seed,difficulty);
         clear_screen();
         ppp("Dziękuję za grę. Do zobaczenia następnym razem!");
         ppp("~ Maciej Witkowski\n\n");
@@ -40,8 +50,17 @@ int main(){
         ppp("Wprowadź seed mapy: ");
         scanf("%d", &seed);
         ppp("Wczytano seed.");
+        ppp("Podaj poziom trudności, od 1 do 5. Im wyższą liczbę podasz, tym większa będzie mapa.");
+        while(difficulty < 1 || difficulty > 5){
+            ppp("Wprowadź trudność: ");
+            scanf("%d",&difficulty);
+            if(difficulty < 1 || difficulty > 5){
+                ppp("Nieprawidłowy przedział trudności.");
+            }
+        }
+        difficulty *= 5;
         clear_screen();
-        start_game(seed);
+        start_game(seed,difficulty);
         clear_screen();
         ppp("Dziękuję za grę. Do zobaczenia następnym razem!");
         ppp("~ Maciej Witkowski\n\n");
