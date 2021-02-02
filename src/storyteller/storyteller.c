@@ -360,5 +360,17 @@ int handle_room(Room* room, Player* player, Player* rival){
             return 0;
         }
     }
+    //handling cleaning debris
+    if(room->props[4] && player->hasPickaxe){
+        scanf("%d",&numerical_input);
+        if(numerical_input == 1){
+            ppp("Oczyściłeś drogę!");
+            room->props[4] = false;
+            return 0;
+        } else {
+            ppp("Pozostawiłeś blokadę bez zmian.");
+            return 0;
+        }
+    }
     return 0;
 }

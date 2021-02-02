@@ -45,7 +45,7 @@ void start_game(time_t seed, int difficulty){
     Player *rival = player_2;
 
     ppp("Budzicie się w ciemnym pomieszczeniu. Lata poszukiwań doprowadziły was właśnie tutaj.\nSkarb jest już blisko. \nPozostaje pytanie, kto pierwszy go znajdzie? \nNie macie wątpliwości - jedyna droga prowadzi naprzód. \nPora rozpocząć poszukiwania.\n\n");
-    msleep(1000);
+    msleep(500);
 
     while(input != "exit"){
         rival = turn->num == 1 ? player_2 : player_1;
